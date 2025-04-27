@@ -1,25 +1,65 @@
-@keyframes fadeIn {
-  from {
+/* Fading + Glow + Scale Animation */
+@keyframes fadeInGlow {
+  0% {
     opacity: 0;
+    transform: scale(0.95);
+    text-shadow: 0 0 0px cyan;
   }
-  to {
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02);
+    text-shadow: 0 0 8px cyan;
+  }
+  100% {
     opacity: 1;
+    transform: scale(1);
+    text-shadow: 0 0 12px cyan;
   }
+}
+
+/* Class to apply */
+.animate-fade-in-glow {
+  animation: fadeInGlow 2s ease-out forwards;
+}
+
+/* Standart fade-in (kullanıyoruz) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .animate-fade-in {
   animation: fadeIn 1.5s ease-out forwards;
 }
 
+/* Standart fade-in gecikmeli */
 .animate-fade-in-delay {
   animation: fadeIn 2.5s ease-out forwards;
 }
 
+/* Scroll yumuşatma */
 html, body {
   scroll-behavior: smooth;
 }
 
-/* Navbar link transition smoothness */
+/* Navbar link hover smooth */
 nav a {
   transition: color 0.3s ease;
+}
+
+/* Galaxy Background Animasyonu */
+@keyframes moveStars {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1000px 1000px;
+  }
+}
+
+.animate-stars {
+  background: url('https://raw.githubusercontent.com/Klerith/starry-sky/master/public/stars.png') repeat;
+  background-size: cover;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.2;
 }
