@@ -2,7 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import LoadingScreen from "./components/LoadingScreen"; // <== Burayı ekledik
+import LoadingScreen from "./components/LoadingScreen";
+import ScrollToTopButton from "./components/ScrollToTopButton";
+import GalaxyBackground from "./components/GalaxyBackground";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Roadmap from "./pages/Roadmap";
@@ -20,7 +23,8 @@ import Playtoearn from "./pages/Playtoearn";
 function App() {
   return (
     <Router>
-      <LoadingScreen> {/* YENİ EKLEDİK */}
+      <LoadingScreen>
+        <GalaxyBackground />
         <div className="bg-black text-white min-h-screen flex flex-col">
           <Navbar />
           <div className="flex-grow">
@@ -40,6 +44,7 @@ function App() {
               <Route path="/playtoearn" element={<Playtoearn />} />
             </Routes>
           </div>
+          <ScrollToTopButton />
           <Footer />
         </div>
       </LoadingScreen>
